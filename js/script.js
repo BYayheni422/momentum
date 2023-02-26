@@ -84,3 +84,38 @@ let nextData = Math.floor(Math.random() * (3 - 0)) + 0;
     }
 }
 getQuotes();
+function setBg(){
+    if (randomNum < 10){randomNum = "0" + randomNum;}
+    const img = new Image();
+    img.src = `https://raw.githubusercontent.com/BYayheni422/momentum/main/assets/img/${hoursGreeting}/${randomNum}.webp`;
+    img.onload = () => {
+    document.body.style.backgroundImage = url(${img.src}); 
+    };
+}
+setBg();
+
+function getSlideNext(){
+    if (randomNum == '20'){
+        randomNum = 1;
+        setBg();
+    } else {
+    randomNum++;
+    setBg();
+    }
+    }
+
+const slideNext = document.querySelector('.slide-next');
+slideNext.addEventListener('click', getSlideNext);
+
+function getSlidePrev(){
+    if (randomNum == '01'){
+        randomNum = 20;
+        setBg();
+    } else {
+    randomNum--;
+    setBg();
+    }
+}
+
+const slidePrev = document.querySelector('.slide-prev');
+slidePrev.addEventListener('click', getSlidePrev);
