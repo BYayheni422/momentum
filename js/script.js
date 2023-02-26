@@ -57,6 +57,8 @@ async function getWeather() {
     weatherDescription.textContent = data.weather[0].description;
   }
   getWeather();
+
+let nextData = Math.floor(Math.random() * (3 - 0)) + 0;
   async function getQuotes() {  
     const quotes = 'data.json';
     const res = await fetch(quotes);
