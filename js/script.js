@@ -60,7 +60,23 @@ async function getWeather() {
   async function getQuotes() {  
     const quotes = 'data.json';
     const res = await fetch(quotes);
-    const data = await res.json(); 
-    console.log(data);
-  }
-  getQuotes();
+    const data = await res.json();
+    switch (nextData){
+        case 0:
+            nextData = 1;
+            quote.textContent = `"${data[nextData].text}"`;
+            author.textContent = data[nextData].author;
+            break;
+        case 1:
+            nextData = 2;
+            quote.textContent = `"${data[nextData].text}"`;
+            author.textContent = data[nextData].author;
+            break;
+        case 2:
+            nextData = 0;
+            quote.textContent = `"${data[nextData].text}"`;
+            author.textContent = data[nextData].author;
+            break;
+    }
+}
+getQuotes();
