@@ -13,7 +13,7 @@ setTimeout(showTime, 1000);
 time.textContent=currentTime;
 function showDate(){
 const date = new Date();
-const options = {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC'};
+const options = {month: 'long', day: 'numeric', weekday:"long"};
 const currentDate = date.toLocaleDateString('en-Us', options);
 dateTag.textContent=currentDate;}
 function showGreetings(){
@@ -21,17 +21,17 @@ function showGreetings(){
         const date = new Date();
 const hours = date.getHours();
         switch (true){
-            case (hours > 17) : {hoursGreeting = 'one';break;} 
-            case (hours > 11) : {hoursGreeting = 'tho';break;} 
-            case (hours > 5) : {hoursGreeting = 'free';break;} 
-            case (hours >= 0) : {hoursGreeting = 'reee';break;} 
+            case (hours > 17) : {hoursGreeting = 'morning';break;} 
+            case (hours > 11) : {hoursGreeting = 'afternoon';break;} 
+            case (hours > 5) : {hoursGreeting = 'evening';break;} 
+            case (hours >= 0) : {hoursGreeting = 'night';break;} 
             
         }
         return hoursGreeting;
     }
     const timeOfDay = getTimeOfDay();
     const greetingText = `Good ${timeOfDay}`;
-    greetings.textContent = greetings;
+    greetings.textContent = greetingText;
 }
 showDate();
 showGreetings();
@@ -75,3 +75,5 @@ let nextData = Math.floor(Math.random() * (3 - 0)) + 0;
     }
 }
 getQuotes();
+const changeQuote = document.querySelector('.change-quote');
+changeQuote.addEventListener("click",getQuotes)
