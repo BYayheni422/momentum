@@ -4,30 +4,22 @@ const greetings = document.querySelector(".greeting");
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
-
-
-
 let hoursGreeting = "not work";
 let randomNum = (Math.round(Math.random() * (20 - 1)) + 1).toString();;
-
-
 function showTime() {
 const date = new Date();
 const currentTime = date.toLocaleTimeString();
 setTimeout(showTime, 1000);
 time.textContent=currentTime;
-
 function showDate(){
 const date = new Date();
 const options = {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC'};
 const currentDate = date.toLocaleDateString('en-Us', options);
-
 dateTag.textContent=currentDate;}
 function showGreetings(){
     function getTimeOfDay(){
         const date = new Date();
 const hours = date.getHours();
-
         switch (true){
             case (hours > 17) : {hoursGreeting = 'one';break;} 
             case (hours > 11) : {hoursGreeting = 'tho';break;} 
@@ -57,10 +49,9 @@ async function getWeather() {
     weatherDescription.textContent = data.weather[0].description;
   }
   getWeather();
-
-    const quote = document.querySelector(".quote"); 
-    const author = document.querySelector(".author");
-    let nextData = Math.floor(Math.random() * (3 - 0)) + 0;
+const quote = document.querySelector(".quote"); 
+const author = document.querySelector(".author");
+let nextData = Math.floor(Math.random() * (3 - 0)) + 0;
   async function getQuotes() {  
     const quotes = 'data.json';
     const res = await fetch(quotes);
