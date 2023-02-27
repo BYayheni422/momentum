@@ -58,9 +58,9 @@ async function getWeather() {
   }
   getWeather();
 
-const quote = document.querySelector(".quote"); 
-const author = document.querySelector(".author");
-let nextData = Math.floor(Math.random() * (3 - 0)) + 0;
+    const quote = document.querySelector(".quote"); 
+    const author = document.querySelector(".author");
+    let nextData = Math.floor(Math.random() * (3 - 0)) + 0;
   async function getQuotes() {  
     const quotes = 'data.json';
     const res = await fetch(quotes);
